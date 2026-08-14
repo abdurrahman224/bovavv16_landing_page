@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Shadows+Into+Light&display=swap');
+@import "tailwindcss";
+
+/* ========================= */
+/* GLOBAL DEFAULT FONT       */
+/* ========================= */
+* {
+  font-family: "Work Sans", sans-serif;
+}
+
+/* ========================= */
+/* THEME TOKENS              */
+/* ========================= */
+@theme {
+  --font-heroTitle: 'Oswald', sans-serif;
+  --font-ui: 'Montserrat', sans-serif;
+}
+
+/* ========================= */
+/* TYPOGRAPHY UTILITIES      */
+/* ========================= */
+
+/* Hero / Marketing Title */
+.hero-title {
+  font-family: var(--font-heroTitle);
+  font-weight: 700;
+}
+
+/* UI Text: buttons, cards, labels, small headings */
+.ui-font {
+  font-family: var(--font-ui);
+}
+
+
+/* Footer card handwritten/display font */
+.footer-card-font {
+  font-family: 'Shadows Into Light', cursive;
+}
+
+/* ========================= */
+/* LAYOUT UTILITIES          */
+/* ========================= */
+
+/**
+ * CONTAINER
+ * - Centers content
+ * - Matches Figma max width
+ * - Responsive horizontal padding
+ */
+@utility container {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 1640px; /* Matches Figma design width */
+
+  /* Mobile (default) */
+  padding-inline: 1rem; /* 16px */
+
+  /* Tablet (≥ 640px) */
+  @media (min-width: 640px) {
+    padding-inline: 1.5rem; /* 24px */
+  }
+
+  /* Laptop / Desktop (≥ 1024px) */
+  @media (min-width: 1024px) {
+    padding-inline: 2rem; /* 32px */
+    width: 93%;
+  }
+
+  /* Large Desktop / 2K screens (optional) */
+  @media (min-width: 1536px) {
+    padding-inline: 2.5rem; /* 40px */
+  }
+}
+
+/**
+ * SECTION GAP
+ * - Vertical spacing between sections
+ * - Safe horizontal padding on mobile
+ */
+@utility section-gap {
+  @apply px-4 py-6;       
+  @apply sm:px-6;            
+  @apply md:py-14;           
+  @apply lg:py-20;           
+}
+
+/* ========================= */
+/* SCROLL BEHAVIOR           */
+/* ========================= */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ========================= */
+/* CUSTOM SCROLLBAR          */
+/* ========================= */
+
+/* Chrome / Edge / Safari */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.4);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Firefox */
+body {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(100, 100, 100, 0.4) transparent;
+}
+
+/* Hide scrollbar (optional utility) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ========================= */
+/* ANIMATIONS                */
+/* ========================= */
+@keyframes fade-in-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-down {
+  animation: fade-in-down 0.3s ease-out both;
+}
